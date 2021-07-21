@@ -106,15 +106,19 @@ function Contact() {
   };
 
   const onSubmit = async (data) => {
-    const variables = {
-      message: data.message,
-      from_name: data.firstname + " " + data.lastname,
-      to_name: "Wahyu Nur Fadillah",
-      from_email: data.email,
-    };
-
-    await sendEmail(variables);
-    reset();
+    try {
+      const variables = {
+        message: data.message,
+        from_name: data.firstname + " " + data.lastname,
+        to_name: "Wahyu Nur Fadillah",
+        from_email: data.email,
+      };
+      await sendEmail(variables);
+      alert("Email terkirim");
+      reset();
+    } catch (error) {
+      alert("Mohon maaf email tidak terkirim");
+    }
   };
 
   return (
