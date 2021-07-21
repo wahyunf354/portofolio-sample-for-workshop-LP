@@ -23,6 +23,15 @@ const ButtonOutlineSecondary = styled(Link)`
   }
 `;
 
+const ButtonDisabled = styled(Link)`
+  color: white;
+  background: #c4c4c4;
+  border: 2px solid #c4c4c4;
+  font-weight: 300;
+  transition: 300ms;
+  text-align: center;
+`;
+
 const ButtonPrimary = styled(Link)`
   color: white;
   background-color: salmon;
@@ -37,10 +46,18 @@ const ButtonPrimary = styled(Link)`
   }
 `;
 
-function Button({ type, href, children, isBtnOutlineSecondary, isBtnPrimary }) {
+function Button({
+  type,
+  href,
+  children,
+  isBtnOutlineSecondary,
+  style,
+  isBtnPrimary,
+  disabled,
+}) {
   if (type === "link" && isBtnOutlineSecondary) {
     return (
-      <ButtonOutlineSecondary as="a" href={href}>
+      <ButtonOutlineSecondary as="a" href={href} style={style}>
         {children}
       </ButtonOutlineSecondary>
     );
@@ -48,17 +65,31 @@ function Button({ type, href, children, isBtnOutlineSecondary, isBtnPrimary }) {
 
   if (type === "link" && isBtnPrimary) {
     return (
-      <ButtonPrimary as="a" href={href}>
+      <ButtonPrimary as="a" href={href} style={style}>
         {children}
       </ButtonPrimary>
     );
   }
 
-  if (type === "submit") {
-    <ButtonPrimary type="submit">{children}</ButtonPrimary>;
+  if (disabled) {
+    return (
+      <ButtonDisabled as="div" style={style}>
+        {children}
+      </ButtonDisabled>
+    );
   }
 
-  return <ButtonPrimary type={type}>{children}</ButtonPrimary>;
+  if (type === "submit") {
+    <ButtonPrimary type="submit" style={style}>
+      {children}
+    </ButtonPrimary>;
+  }
+
+  return (
+    <ButtonPrimary type={type} style={style}>
+      {children}
+    </ButtonPrimary>
+  );
 }
 
 export default Button;

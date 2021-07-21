@@ -1,4 +1,7 @@
 import React from "react";
+import { useForm } from "react-hook-form";
+import emailjs from "emailjs-com";
+
 import styled from "styled-components";
 import Button from "./atoms/Button.jsx";
 import Github from "../svg/Github.jsx";
@@ -38,6 +41,7 @@ const ContactInfo = styled.ul`
 const Form = styled.form`
   flex: 1;
   display: grid;
+  text-align: left;
   grid-template-columns: 1fr 1fr;
   grid-template-row: auto;
   grid-gap: 1em;
@@ -50,8 +54,11 @@ const Form = styled.form`
 
 const Input = styled.input`
   padding: 1em;
+  box-sizing: border-box;
   border: 1px solid #c4c4c4;
   border-radius: 5px;
+  width: 100%;
+  font-family: "Poppins", sans serif;
 
   &:active {
     outline-style: none;
@@ -71,7 +78,45 @@ const List = styled.li`
   font-weight: 300;
 `;
 
+const Error = styled.span`
+  color: red;
+  font-size: 0.7em;
+`;
+
 function Contact() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm();
+
+  const sendEmail = (variables) => {
+    const templateId = "template_xeverlk";
+    const serviceId = "service_qjfs1s1";
+    const userId = "user_x63ucbcCdDmltqAGrpMGX";
+    return new Promise(function (resolve, reject) {
+      emailjs
+        .send(serviceId, templateId, variables, userId)
+        .then((res) => {
+          return resolve(res);
+        })
+        .catch((error) => reject(error));
+    });
+  };
+
+  const onSubmit = async (data) => {
+    const variables = {
+      message: data.message,
+      from_name: data.firstname + " " + data.lastname,
+      to_name: "Wahyu Nur Fadillah",
+      from_email: data.email,
+    };
+
+    await sendEmail(variables);
+    reset();
+  };
+
   return (
     <Wrapper>
       <Title>Contact</Title>
@@ -102,35 +147,61 @@ function Contact() {
             </span>
           </List>
         </ContactInfo>
-        <Form>
-          <Input
-            style={{ gridArea: "firstname" }}
-            name="fisrtname"
-            type="text"
-            placeholder="First Name"
-          />
-          <Input
-            style={{ gridArea: "lastname" }}
-            name="lastname"
-            type="text"
-            placeholder="Last Name"
-          />
-          <Input
-            style={{ gridArea: "email" }}
-            name="email"
-            type="email"
-            placeholder="Email"
-          />
-          <Input
-            as="textarea"
-            style={{ gridArea: "message" }}
-            name="message"
-            id="message"
-            cols="30"
-            rows="10"
-            placeholder="Message"
-          ></Input>
-          <Button type="submit">Send</Button>
+        <Form onSubmit={handleSubmit(onSubmit)}>
+          <div style={{ gridArea: "firstname" }}>
+            <Input
+              name="firstname"
+              type="text"
+              placeholder="First Name"
+              {...register("firstname", { required: true })}
+            />
+            {errors.firstname && <Error>First Name Required</Error>}
+          </div>
+          <div style={{ gridArea: "lastname" }}>
+            <Input
+              name="lastname"
+              type="text"
+              placeholder="Last Name"
+              {...register("lastname", { required: true })}
+            />
+            {errors.lastname && <Error>Last Name Required</Error>}
+          </div>
+          <div style={{ gridArea: "email" }}>
+            <Input
+              name="email"
+              type="email"
+              placeholder="Email"
+              {...register("email", {
+                required: true,
+                pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+              })}
+            />
+            {errors.email && errors.email.type === "required" && (
+              <Error>Email Required</Error>
+            )}
+            {errors.email && errors.email.type === "pattern" && (
+              <Error>Invalid Email</Error>
+            )}
+          </div>
+          <div style={{ gridArea: "message" }}>
+            <Input
+              as="textarea"
+              name="message"
+              id="message"
+              cols="30"
+              rows="10"
+              placeholder="Message"
+              {...register("message", { required: true })}
+            ></Input>
+            {errors.message && <Error>Message Required</Error>}
+          </div>
+          <Button
+            style={{ gridArea: "button" }}
+            type="submit"
+            disabled={isSubmitting}
+          >
+            Send
+          </Button>
         </Form>
       </Content>
     </Wrapper>
