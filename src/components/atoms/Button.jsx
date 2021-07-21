@@ -28,9 +28,12 @@ const ButtonPrimary = styled(Link)`
   background-color: salmon;
   font-weight: 700;
   transition: 300ms;
+  outline-line: none;
+  border: 1px solid salmon;
 
   &:hover {
     opacity: 0.9;
+    cursor: pointer;
   }
 `;
 
@@ -51,7 +54,11 @@ function Button({ type, href, children, isBtnOutlineSecondary, isBtnPrimary }) {
     );
   }
 
-  return <button>{children}</button>;
+  if (type === "submit") {
+    <ButtonPrimary type="submit">{children}</ButtonPrimary>;
+  }
+
+  return <ButtonPrimary type={type}>{children}</ButtonPrimary>;
 }
 
 export default Button;

@@ -70,7 +70,7 @@ const Body = styled.div`
 function Card() {
   return (
     <Wrapper>
-      <Image src="https://placeimg.com/640/480/any" alt="any" />
+      <Image src="https://placeimg.com/640/480/nature" alt="any" />
       <Body>
         <Title>Website Funding</Title>
         <Description>with MERN Stack</Description>
