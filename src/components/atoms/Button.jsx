@@ -46,6 +46,15 @@ const ButtonPrimary = styled(Link)`
   }
 `;
 
+const LinkExternal = styled(Link)`
+  padding: 0.5em 0;
+  color: white;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
 function Button({
   type,
   href,
@@ -54,7 +63,16 @@ function Button({
   style,
   isBtnPrimary,
   disabled,
+  isLinkExternal,
 }) {
+  if (disabled) {
+    return (
+      <ButtonDisabled as="div" style={style}>
+        {children}
+      </ButtonDisabled>
+    );
+  }
+
   if (type === "link" && isBtnOutlineSecondary) {
     return (
       <ButtonOutlineSecondary as="a" href={href} style={style}>
@@ -71,11 +89,11 @@ function Button({
     );
   }
 
-  if (disabled) {
+  if (type === "link" && isLinkExternal) {
     return (
-      <ButtonDisabled as="div" style={style}>
+      <LinkExternal as="a" style={style} href={href} target="blank">
         {children}
-      </ButtonDisabled>
+      </LinkExternal>
     );
   }
 

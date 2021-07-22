@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
+import Button from "../atoms/Button";
 
 const Image = styled.img`
   width: 100%;
@@ -21,7 +23,6 @@ const Wrapper = styled.div`
   background: salmon;
   border-radius: 20px;
   overflow: hidden;
-  line-height: 0;
   font-family: "Poppins", sans-serif;
   cursor: pointer;
 
@@ -56,8 +57,9 @@ const Title = styled.h4`
 
 const Description = styled.p`
   color: white;
-  line-height: 0.1em;
   font-weight: 300;
+  font-size: 0.8em;
+  margin: 0;
 `;
 
 const Body = styled.div`
@@ -67,16 +69,26 @@ const Body = styled.div`
   text-align: left;
 `;
 
-function Card() {
+function Card({ title, imageUrl, description, linkProject }) {
   return (
     <Wrapper>
-      <Image src="https://placeimg.com/640/480/nature" alt="any" />
+      <Image src={imageUrl} alt="any" />
       <Body>
-        <Title>Website Funding</Title>
-        <Description>with MERN Stack</Description>
+        <Title>{title}</Title>
+        <Description>{description}</Description>
+        <Button type="link" href={linkProject} isLinkExternal>
+          More >
+        </Button>
       </Body>
     </Wrapper>
   );
 }
+
+Card.propTypes = {
+  title: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string.isRequired,
+  description: PropTypes.string,
+  linkProject: PropTypes.string.isRequired,
+};
 
 export default Card;

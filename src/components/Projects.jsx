@@ -21,14 +21,41 @@ const Content = styled.div`
   justify-content: space-around;
 `;
 
+const projects = [
+  {
+    title: "Mejeng App",
+    description: "Sosial media app with Reactjs and Firebase",
+    linkProject: "https://mejengapp-4d31f.web.app/",
+    imageUrl: "./img/project1.png",
+  },
+  {
+    title: "D'lern",
+    description:
+      "Game to Learn German Lenguage with Reactjs, Firebase, Rest API Codeigniter",
+    linkProject: "https://dlern.vercel.app/",
+    imageUrl: "./img/project2.png",
+  },
+  {
+    title: "Rest API Cari Kerja",
+    description: "Rest API with Fastify and Postgersql",
+    linkProject: "https://carikerja-api.vercel.app/documentation",
+    imageUrl: "./img/project3.png",
+  },
+];
+
 function Projects() {
   return (
     <Wrapper>
       <Title>Projects</Title>
       <Content>
-        <Card />
-        <Card />
-        <Card />
+        {projects.map((project) => (
+          <Card
+            title={project.title}
+            description={project.description}
+            linkProject={project.linkProject}
+            imageUrl={project.imageUrl}
+          />
+        ))}
       </Content>
     </Wrapper>
   );
