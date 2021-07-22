@@ -51,7 +51,11 @@ function Hero(props) {
         <Button onClick={showContact} isBtnPrimary>
           Contact me
         </Button>
-        <Button type="link" href="#" isBtnOutlineSecondary>
+        <Button
+          type="link"
+          href="https://drive.google.com/file/d/1CynKaSaOkDOO8JR0uwCs7iJycq5rT4Xw/view?usp=sharing"
+          isBtnOutlineSecondary
+        >
           Download CV
         </Button>
       </div>

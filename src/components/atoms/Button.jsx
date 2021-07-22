@@ -76,7 +76,7 @@ function Button({
 
   if (type === "link" && isBtnOutlineSecondary) {
     return (
-      <ButtonOutlineSecondary as="a" href={href} style={style}>
+      <ButtonOutlineSecondary as="a" href={href} style={style} target="blank">
         {children}
       </ButtonOutlineSecondary>
     );
