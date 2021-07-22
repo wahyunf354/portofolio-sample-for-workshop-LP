@@ -7,11 +7,13 @@ const Header = styled.header`
   border-bottom: 2px solid #f4f4f4;
 `;
 
-const NavLink = styled.li`
+const NavLink = styled.a`
   margin-left: 15px;
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   transition: all 300ms;
+  text-decoration: none;
+  color: #303030;
 
   &:hover {
     color: salmon;
@@ -41,12 +43,12 @@ function Navbar() {
         </Logo>
       </div>
       <NavWrapper>
-        <NavLink>About</NavLink>
-        <NavLink>Projects</NavLink>
-        <NavLink>Contact</NavLink>
+        <NavLink href="#about">About</NavLink>
+        <NavLink href="#project">Projects</NavLink>
+        <NavLink href="#contact">Contact</NavLink>
       </NavWrapper>
     </Header>
   );
 }
 
-export default Navbar;
+export { Navbar };

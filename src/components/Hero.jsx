@@ -24,7 +24,14 @@ const Description = styled.p`
   margin-bottom: 5em;
 `;
 
-function Hero() {
+function Hero(props) {
+  const showContact = () => {
+    window.scrollTo({
+      top: props.refContact.current.offsetTop - 30,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <HeroWrapper>
       <div>
@@ -41,7 +48,7 @@ function Hero() {
           </span>
         </Description>
 
-        <Button type="link" href="#contact" isBtnPrimary>
+        <Button onClick={showContact} isBtnPrimary>
           Contact me
         </Button>
         <Button type="link" href="#" isBtnOutlineSecondary>

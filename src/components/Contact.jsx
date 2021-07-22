@@ -83,7 +83,7 @@ const Error = styled.span`
   font-size: 0.7em;
 `;
 
-function Contact() {
+function Contact(props) {
   const {
     register,
     handleSubmit,
@@ -122,7 +122,7 @@ function Contact() {
   };
 
   return (
-    <Wrapper>
+    <Wrapper ref={props.refContact} id="contact">
       <Title>Contact</Title>
       <Content>
         <ContactInfo>

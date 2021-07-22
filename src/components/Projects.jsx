@@ -45,11 +45,12 @@ const projects = [
 
 function Projects() {
   return (
-    <Wrapper>
+    <Wrapper id="project">
       <Title>Projects</Title>
       <Content>
-        {projects.map((project) => (
+        {projects.map((project, i) => (
           <Card
+            key={i}
             title={project.title}
             description={project.description}
             linkProject={project.linkProject}

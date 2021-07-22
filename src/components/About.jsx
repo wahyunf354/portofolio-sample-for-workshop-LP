@@ -24,9 +24,9 @@ const Description = styled.p`
   margin: 0 auto;
 `;
 
-function About() {
+function About(props) {
   return (
-    <Wrapper>
+    <Wrapper id="about" ref={props.refAbout}>
       <Title>About</Title>
       <Description>
         Lorem Ipsum is simply dummy text of the printing and typesetting

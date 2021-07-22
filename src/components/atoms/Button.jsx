@@ -64,6 +64,7 @@ function Button({
   isBtnPrimary,
   disabled,
   isLinkExternal,
+  onClick,
 }) {
   if (disabled) {
     return (
@@ -104,7 +105,7 @@ function Button({
   }
 
   return (
-    <ButtonPrimary type={type} style={style}>
+    <ButtonPrimary onClick={onClick} type={type} style={style}>
       {children}
     </ButtonPrimary>
   );
