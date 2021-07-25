@@ -19,6 +19,7 @@ const Title = styled.h3`
 const Content = styled.div`
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
 `;
 
 const projects = [

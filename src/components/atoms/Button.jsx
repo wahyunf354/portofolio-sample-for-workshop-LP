@@ -11,6 +11,12 @@ const Link = styled.button`
   margin-right: 1em;
 `;
 
+const ButtonPolos = styled.button`
+  outline: none;
+  border: none;
+  background: none;
+`;
+
 const ButtonOutlineSecondary = styled(Link)`
   color: #c4c4c4;
   border: 2px solid #c4c4c4;
@@ -73,6 +79,13 @@ function Button({
       </ButtonDisabled>
     );
   }
+  if (isBtnPrimary) {
+    return (
+      <ButtonPrimary onClick={onClick} style={style}>
+        {children}
+      </ButtonPrimary>
+    );
+  }
 
   if (type === "link" && isBtnOutlineSecondary) {
     return (
@@ -105,9 +118,9 @@ function Button({
   }
 
   return (
-    <ButtonPrimary onClick={onClick} type={type} style={style}>
+    <ButtonPolos onClick={onClick} type={type} style={style}>
       {children}
-    </ButtonPrimary>
+    </ButtonPolos>
   );
 }
 

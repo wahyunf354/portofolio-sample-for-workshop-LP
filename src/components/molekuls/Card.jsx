@@ -25,6 +25,7 @@ const Wrapper = styled.div`
   overflow: hidden;
   font-family: "Poppins", sans-serif;
   cursor: pointer;
+  margin-bottom: 2em;
 
   &:before {
     content: "";

@@ -11,6 +11,10 @@ import Footer from "./components/Footer.jsx";
 const Container = styled.div`
   width: 80%;
   margin: 0 auto;
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 class App extends React.Component {

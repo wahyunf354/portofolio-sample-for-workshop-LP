@@ -26,6 +26,10 @@ const Title = styled.h3`
 
 const Content = styled.div`
   display: flex;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    padding: 0 10px;
+  }
 `;
 
 const ContactInfo = styled.ul`
@@ -36,6 +40,7 @@ const ContactInfo = styled.ul`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  padding: 0;
 `;
 
 const Form = styled.form`
@@ -201,6 +206,7 @@ function Contact(props) {
             {errors.message && <Error>Message Required</Error>}
           </div>
           <Button
+            isBtnPrimary
             style={{ gridArea: "button" }}
             type="submit"
             disabled={isSubmitting}

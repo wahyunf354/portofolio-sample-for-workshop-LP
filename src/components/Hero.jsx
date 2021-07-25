@@ -7,13 +7,16 @@ const HeroWrapper = styled.div`
   padding-top: 50px;
   width: 100%;
   margin: 0 auto;
+  @media screen and (max-width: 768px) {
+    padding: 0 10px;
+  }
 `;
 
 const Title = styled.h1`
   color: #303030;
   font-weight: 600;
   font-size: 64px;
-  line-height: 48px;
+  line-height: 64px;
   font-family: "Poppins", sans-serif;
 `;
 
@@ -22,6 +25,12 @@ const Description = styled.p`
   font-weight: 300;
   font-family: "Poppins", sans-serif;
   margin-bottom: 5em;
+`;
+
+const ImageWrapper = styled.div`
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 function Hero(props) {
@@ -48,7 +57,12 @@ function Hero(props) {
           </span>
         </Description>
 
-        <Button onClick={showContact} isBtnPrimary>
+        <Button
+          isBtnPrimary
+          onClick={showContact}
+          isBtnPrimary
+          style={{ marginBottom: "1em" }}
+        >
           Contact me
         </Button>
         <Button
@@ -59,9 +73,9 @@ function Hero(props) {
           Download CV
         </Button>
       </div>
-      <div>
+      <ImageWrapper>
         <img src="/img/profile.png" alt="profile" />
-      </div>
+      </ImageWrapper>
     </HeroWrapper>
   );
 }
