@@ -74,7 +74,7 @@ function Hero(props) {
         </Button>
       </div>
       <ImageWrapper>
-        <img src="/img/profile.png" alt="profile" />
+        <img src="/img/profile.png" alt="profile" width="400px" />
       </ImageWrapper>
     </HeroWrapper>
   );
