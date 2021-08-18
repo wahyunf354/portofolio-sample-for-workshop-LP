@@ -60,7 +60,6 @@ function Hero(props) {
         <Button
           isBtnPrimary
           onClick={showContact}
-          isBtnPrimary
           style={{ marginBottom: "1em" }}
         >
           Contact me
