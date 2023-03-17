@@ -33,9 +33,7 @@ function About(props) {
     <Wrapper id="about" ref={props.refAbout}>
       <Title>About</Title>
       <Description>
-        I am a back end programmer currently as a freelancer. I am working on a
-        project using PHP and Java Script. Laravel, Express js and Fastify are
-        the frameworks I usually use.
+          Hello, I am a Computer Science student from the State University of Medan. I am also a freelance worker who specializes in handling website projects using Javascript and PHP technologies. I am proficient in using Laravel and Express JS frameworks. Additionally, I am capable of utilizing Golang for REST API development and Python for Data Processing. Furthermore, I possess the ability to apply DevOps practices, perform automation with Jenkins, and deploy applications with Docker.
       </Description>
     </Wrapper>
   );
