@@ -66,7 +66,7 @@ function Hero(props) {
         </Button>
         <Button
           type="link"
-          href="https://drive.google.com/file/d/1CynKaSaOkDOO8JR0uwCs7iJycq5rT4Xw/view?usp=sharing"
+          href="https://drive.google.com/file/d/15oio47J8vVlcKGK2wKqYDATKrvEicm3D/view?usp=sharing"
           isBtnOutlineSecondary
         >
           Download CV
