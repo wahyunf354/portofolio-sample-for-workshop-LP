@@ -39,8 +39,14 @@ const projects = [
   {
     title: "Rest API Cari Kerja",
     description: "Rest API with Fastify and Postgersql",
-    linkProject: "https://carikerja-api.vercel.app/documentation",
+    linkProject: "https://app.swaggerhub.com/apis-docs/kampusmerdek/ProfCourse/1.0.0",
     imageUrl: "./img/project3.png",
+  },
+  {
+    title: "Rest API ProfCourse (LSM)",
+    description: "Rest API with Golang, Gorm, Echo Framework, Docker, AWS",
+    linkProject: "https://github.com/Kel-21-Alta/backend-profcourse",
+    imageUrl: "./img/project4.png",
   },
 ];
 
