@@ -48,6 +48,12 @@ const projects = [
     linkProject: "https://github.com/Kel-21-Alta/backend-profcourse",
     imageUrl: "./img/project4.png",
   },
+  {
+    title: "Weeding Website",
+    description: "Wedding website for invitation people with HTML, CSS, JS, Boostrapt 5.3, and Firabase",
+    linkProject: "https://penikahan-fadillah-anggi.surge.sh/?to=Name_People",
+    imageUrl: "./img/project5.png",
+  },
 ];
 
 function Projects() {
