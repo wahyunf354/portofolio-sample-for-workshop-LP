@@ -43,8 +43,8 @@ const projects = [
     imageUrl: "./img/project3.png",
   },
   {
-    title: "Rest API ProfCourse (LSM)",
-    description: "Rest API with Golang, Gorm, Echo Framework, Docker, AWS",
+    title: "REST API ProfCourse",
+    description: "Rest API ProfCourse (LSM) with Golang, Gorm, Echo Framework, Docker, AWS",
     linkProject: "https://github.com/Kel-21-Alta/backend-profcourse",
     imageUrl: "./img/project4.png",
   },
